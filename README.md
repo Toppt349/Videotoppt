@@ -83,7 +83,7 @@
     </style>
 
 
-    <h1>🎥 My Video Gallery</h1>
+    <h1>🎥 Anime H Gallery</h1>
 
     <div class="video-container">
         <div class="video-box">
@@ -110,11 +110,32 @@
             <iframe src="https://drive.google.com/file/d/1WuKp5qZcT_tnqD7gtVFiaXfavnnB1twf/preview" allow="autoplay"></iframe>
             <div class="video-title">Video 5</div>
         </div>
+        <div class="video-box">
+            <iframe src="https://drive.google.com/file/d/10OUoaOaRNzervFJhp-rSroPuuW-Wh0pY/preview" allow="autoplay"></iframe>
+            <div class="video-title">Video 6</div>
+        </div>
+        <div class="video-box">
+            <iframe src="https://drive.google.com/file/d/1lCb6oJbfDZZsfYFUkrq41b9Kp5609UO_/preview" allow="autoplay"></iframe>
+            <div class="video-title">Video 7</div>
+        </div>
+        <div class="video-box">
+            <iframe src="https://drive.google.com/file/d/1ZSPsXJd4mdecjMyhQHTNrZE8Q91BYJmd/preview" allow="autoplay"></iframe>
+            <div class="video-title">Video 8</div>
+        </div>
+        <div class="video-box">
+            <iframe src="https://drive.google.com/file/d/18ZDPA76vRGQecI_Xt_C6-2zh1OIhr3Pe/preview" allow="autoplay"></iframe>
+            <div class="video-title">Video9</div>
+        </div>
+        <div class="video-box">
+            <iframe src="https://drive.google.com/file/d/1EK7C7XDORlEbTHPY_U1nBlhKmf-tGHo9/preview" allow="autoplay"></iframe>
+            <div class="video-title">Video 10</div>
+        </div>
+
     </div>
     <div class="video-container">
         <div class="video-box">
-            <iframe src="https://drive.google.com/file/d/1v_PcupEWHj-DZ1rC7CvMG0xh2Gge_TPU/preview" allow="autoplay"></iframe>
-            <div class="video-title">Video 1</div>
+            <iframe src="/preview" allow="autoplay"></iframe>
+            <div class="video-title">Video 10</div>
         </div>
 
 
