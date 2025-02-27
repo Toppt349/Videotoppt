@@ -19,11 +19,10 @@
         }
 
         .video-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            display: flex; /* ใช้ flexbox เพื่อให้วิดีโออยู่ในแถวเดียว */
+            overflow-x: auto; /* ทำให้สามารถเลื่อนวิดีโอแนวนอนได้ */
             gap: 20px;
-            max-width: 1200px;
-            margin: auto;
+            padding-bottom: 20px; /* เพิ่มพื้นที่ด้านล่างเพื่อการเลื่อน */
         }
 
         .video-box {
@@ -32,6 +31,7 @@
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
             transition: transform 0.3s ease;
+            min-width: 320px; /* กำหนดความกว้างขั้นต่ำของแต่ละวิดีโอ */
         }
 
         .video-box:hover {
@@ -51,7 +51,37 @@
             font-weight: bold;
             text-align: center;
         }
+
+        /* เพิ่ม Media Query สำหรับโทรศัพท์ */
+        @media (max-width: 768px) {
+            iframe {
+                height: 200px;
+            }
+
+            .video-title {
+                font-size: 14px;
+            }
+
+            h1 {
+                font-size: 24px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            iframe {
+                height: 160px;
+            }
+
+            .video-title {
+                font-size: 12px;
+            }
+
+            h1 {
+                font-size: 20px;
+            }
+        }
     </style>
+
 
     <h1>🎥 My Video Gallery</h1>
 
@@ -75,4 +105,16 @@
             <iframe src="https://drive.google.com/file/d/1AiLE5aP4VqSOMEUPcGYzrbbedEnnUxBa/preview" allow="autoplay"></iframe>
             <div class="video-title">Video 4</div>
         </div>
+        
+        <div class="video-box">
+            <iframe src="https://drive.google.com/file/d/1WuKp5qZcT_tnqD7gtVFiaXfavnnB1twf/preview" allow="autoplay"></iframe>
+            <div class="video-title">Video 5</div>
+        </div>
     </div>
+    <div class="video-container">
+        <div class="video-box">
+            <iframe src="https://drive.google.com/file/d/1v_PcupEWHj-DZ1rC7CvMG0xh2Gge_TPU/preview" allow="autoplay"></iframe>
+            <div class="video-title">Video 1</div>
+        </div>
+
+
