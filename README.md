@@ -93,7 +93,6 @@
             }
         }
     </style>
-
     <h1>🎥 Anime H Gallery</h1>
 
     <!-- Search Bar -->
@@ -196,6 +195,47 @@
             <div class="video-title">Video 20</div>
         </div>
     </div>
+    <div class="video-container" id="videoContainer1">
+        <div class="video-box" data-title="zzz-burnice-caesar-21">
+            <iframe src="https://drive.google.com/file/d/1qQ6oTviVxXnn9vTMyl0vQ41fEUCk95pl/preview" allow="autoplay"></iframe>
+            <div class="video-title">Video 21</div>
+        </div>
+        <div class="video-box" data-title="wutheringwaves-camellya-22">
+            <iframe src="https://drive.google.com/file/d/1Mdv24-cfquW8smdAR6TCcmXA7yNYUcXV/preview" allow="autoplay"></iframe>
+            <div class="video-title">Video 22</div>
+        </div>
+        <div class="video-box" data-title="zzz-Miyabi-23">
+            <iframe src="https://drive.google.com/file/d/10vZtMghpHgFbnG7_3aj2CJZ2rq-thfvM/preview" allow="autoplay"></iframe>
+            <div class="video-title">Video 23</div>
+        </div>
+        <div class="video-box" data-title="Cat-24">
+            <iframe src="https://drive.google.com/file/d/1NC-w-L4-hkZ-RzxKfn64onEquTagdKek/preview" allow="autoplay"></iframe>
+            <div class="video-title">Video 24</div>
+        </div>
+        <div class="video-box" data-title="zzz-nicole-25">
+            <iframe src="https://drive.google.com/file/d/1YUNQ56ILla7AL1WYJdSINtUWpeRXzqot/preview" allow="autoplay"></iframe>
+            <div class="video-title">Video 25</div>
+        </div>
+        <div class="video-box" data-title="wutheringwaves-changli-26">
+            <iframe src="https://drive.google.com/file/d/1aYQPDdGAXqFQNsWmRHunTG5GCpnWeTJR/preview" allow="autoplay"></iframe>
+            <div class="video-title">Video 26</div>
+        </div>
+        <div class="video-box" data-title="HonkaiStaril-feixiao-27">
+            <iframe src="https://drive.google.com/file/d/1r_cgoWPygzkDFaI4cSwFi7A7sYxWkvTV/preview" allow="autoplay"></iframe>
+            <div class="video-title">Video 27</div>
+        </div>
+        <div class="video-box" data-title="fubuki-28">
+            <iframe src="https://drive.google.com/file/d/1zc9-gOsnHb4zEndntBz5VpoiIw9QLrUR/preview" allow="autoplay"></iframe>
+            <div class="video-title">Video 28</div>
+        </div>
+        <div class="video-box" data-title="HonkaiStaril-Tingyun-29">
+            <iframe src="https://drive.google.com/file/d/1_xqOsDn_mmOQ4eo0Vymel5Jr8lnTolSc/preview" allow="autoplay"></iframe>
+            <div class="video-title">Video 29</div>
+        </div>
+        <div class="video-box" data-title="Cat-30">
+            <iframe src="https://drive.google.com/file/d/1T58M0-bt4I_hk6AyBcd5kQN66LV-A1nZ/preview" allow="autoplay"></iframe>
+            <div class="video-title">Video 30</div>
+        </div>
 
     <script>
         function filterVideos() {
