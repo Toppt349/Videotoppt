@@ -1,257 +1,254 @@
-<html lang="en">
+
+<html lang="th">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Video Gallery</title>
+    <title>คลังวิดีโอ (Gray Theme)</title>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #181818;
-            color: white;
+        :root {
+            --primary-color: #5f6368;
+            --secondary-color: #80868b;
+            --accent-color: #9aa0a6;
+            --gray-bg: #f1f3f4;
+            --gray-surface: #ffffff;
+            --gray-card: #f8f9fa;
+            --text-primary: #202124;
+            --text-secondary: #5f6368;
+            --card-shadow: 0 1px 2px 0 rgba(60,64,67,0.3), 0 1px 3px 1px rgba(60,64,67,0.15);
+            --hover-shadow: 0 1px 3px 0 rgba(60,64,67,0.302), 0 4px 8px 3px rgba(60,64,67,0.149);
+        }
+
+        * {
             margin: 0;
-            padding: 20px;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            font-family: 'Kanit', sans-serif;
+            background-color: var(--gray-bg);
+            color: var(--text-primary);
+            line-height: 1.5;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1.5rem;
+            flex: 1;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 1.5rem;
+            padding: 1rem 0;
         }
 
         h1 {
-            text-align: center;
-            margin-bottom: 20px;
+            font-size: clamp(1.5rem, 4vw, 2.2rem);
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+            color: var(--primary-color);
         }
 
-        .search-container {
-            text-align: center;
-            margin-bottom: 20px;
+        .subtitle {
+            font-size: clamp(0.9rem, 2vw, 1.1rem);
+            color: var(--text-secondary);
         }
 
-        .search-box {
-            padding: 10px;
-            width: 300px;
-            border-radius: 5px;
-            border: none;
-            font-size: 16px;
+        .drive-container {
+            background: var(--gray-surface);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: var(--card-shadow);
+            margin-bottom: 1.5rem;
+            transition: all 0.3s ease;
+            border: 1px solid #dadce0;
         }
 
-        .video-container {
-            display: flex; 
-            overflow-x: auto; 
-            gap: 20px;
-            padding-bottom: 20px; 
+        .drive-container:hover {
+            box-shadow: var(--hover-shadow);
+            transform: translateY(-2px);
         }
 
-        .video-box {
-            background: #202020;
-            padding: 10px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-            transition: transform 0.3s ease;
-            min-width: 320px; 
+        .drive-header {
+            background: linear-gradient(135deg, #f1f3f4, #e8eaed);
+            color: var(--text-primary);
+            padding: 0.8rem 1.2rem;
+            display: flex;
+            align-items: center;
+            border-bottom: 1px solid #dadce0;
         }
 
-        .video-box:hover {
-            transform: scale(1.05);
+        .drive-header i {
+            font-size: clamp(1.2rem, 3vw, 1.5rem);
+            margin-right: 0.8rem;
+            color: var(--primary-color);
         }
 
-        iframe {
+        .drive-header h2 {
+            font-weight: 400;
+            font-size: clamp(1rem, 2.5vw, 1.3rem);
+        }
+
+        .iframe-wrapper {
+            position: relative;
             width: 100%;
-            height: 180px;
-            border-radius: 10px;
+            padding-bottom: min(56.25%, 70vh);
+            height: 0;
+            overflow: hidden;
+            background: #f8f9fa;
+        }
+
+        .iframe-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
             border: none;
         }
 
-        .video-title {
-            margin-top: 10px;
-            font-size: 16px;
-            font-weight: bold;
+        .controls {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-top: 1.5rem;
+        }
+
+        .btn {
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 0.7rem 1.2rem;
+            border-radius: 4px;
+            font-size: clamp(0.8rem, 2vw, 0.95rem);
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            box-shadow: 0 1px 2px 0 rgba(60,64,67,0.3), 0 1px 3px 1px rgba(60,64,67,0.15);
+            transition: all 0.2s ease;
+            font-weight: 500;
+        }
+
+        .btn:hover {
+            background: #3c4043;
+            transform: translateY(-1px);
+            box-shadow: 0 1px 3px 0 rgba(60,64,67,0.302), 0 4px 8px 3px rgba(60,64,67,0.149);
+        }
+
+        .btn i {
+            margin-right: 8px;
+        }
+
+        .btn-secondary {
+            background: white;
+            color: var(--primary-color);
+            border: 1px solid #dadce0;
+        }
+
+        .btn-secondary:hover {
+            background: #f8f9fa;
+            border-color: #d2d6da;
+        }
+
+        footer {
             text-align: center;
+            padding: 1.2rem;
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            background: white;
+            margin-top: auto;
+            border-top: 1px solid #dadce0;
         }
 
-        /* Responsive styles */
-        @media (max-width: 768px) {
-            iframe {
-                height: 200px;
+        /* ปรับสำหรับมือถือแนวตั้ง */
+        @media (max-width: 600px) and (orientation: portrait) {
+            .container {
+                padding: 1rem;
             }
-
-            .video-title {
-                font-size: 14px;
+            
+            .iframe-wrapper {
+                padding-bottom: min(125%, 80vh);
             }
-
-            h1 {
-                font-size: 24px;
+            
+            .controls {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .btn {
+                width: 100%;
+                max-width: 280px;
+                justify-content: center;
             }
         }
 
-        @media (max-width: 480px) {
-            iframe {
-                height: 160px;
-            }
-
-            .video-title {
-                font-size: 12px;
-            }
-
-            h1 {
-                font-size: 20px;
+        /* ปรับสำหรับแท็บเล็ต */
+        @media (min-width: 601px) and (max-width: 1024px) {
+            .iframe-wrapper {
+                padding-bottom: min(75%, 60vh);
             }
         }
     </style>
-    <h1>🎥 Anime H Gallery</h1>
 
-    <!-- Search Bar -->
-    <div class="search-container">
-        <input type="text" id="searchInput" class="search-box" placeholder="Search Videos..." oninput="filterVideos()">
-    </div>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-video"></i> คลังวิดีโอ (Gray Theme)</h1>
+            <p class="subtitle">วิดีโอทั้งหมดจาก Google Drive ในที่เดียว</p>
+        </header>
 
-    <!-- Video Containers -->
-    <div class="video-container" id="videoContainer1">
-        <div class="video-box" data-title="Machi-1">
-            <iframe src="https://drive.google.com/file/d/1v_PcupEWHj-DZ1rC7CvMG0xh2Gge_TPU/preview" allow="autoplay"></iframe>
-            <div class="video-title">Video 1</div>
+        <div class="drive-container">
+            <div class="drive-header">
+                <i class="fab fa-google-drive"></i>
+                <h2>โฟลเดอร์วิดีโอ</h2>
+            </div>
+            <div class="iframe-wrapper">
+                <!-- แทรก FOLDER_ID ของคุณหลัง id= -->
+                <iframe src="https://drive.google.com/embeddedfolderview?id=1Y5b5a8xCtTjkv7lfWoDrUg4l2oCer6ZZ#grid"></iframe>
+            </div>
         </div>
 
-        <div class="video-box" data-title="HonkaiImpact-2">
-            <iframe src="https://drive.google.com/file/d/1zpBDTn28jPtmZH59HgNXS-jToSoB2oOu/preview" allow="autoplay"></iframe>
-            <div class="video-title">Video 2</div>
-        </div>
-
-        <div class="video-box" data-title="Mika-bluearchive-3">
-            <iframe src="https://drive.google.com/file/d/1uBgqAHaDKggp6AyOXQ9oh0sZz6t18btH/preview" allow="autoplay"></iframe>
-            <div class="video-title">Video 3</div>
-        </div>
-
-        <div class="video-box" data-title="Raiden-Genshin-4">
-            <iframe src="https://drive.google.com/file/d/1AiLE5aP4VqSOMEUPcGYzrbbedEnnUxBa/preview" allow="autoplay"></iframe>
-            <div class="video-title">Video 4</div>
-        </div>
-        
-        <div class="video-box" data-title="Video 5-5">
-            <iframe src="https://drive.google.com/file/d/1WuKp5qZcT_tnqD7gtVFiaXfavnnB1twf/preview" allow="autoplay"></iframe>
-            <div class="video-title">Video 5</div>
-        </div>
-
-        <div class="video-box" data-title="Tosaka-Chicken-6">
-            <iframe src="https://drive.google.com/file/d/10OUoaOaRNzervFJhp-rSroPuuW-Wh0pY/preview" allow="autoplay"></iframe>
-            <div class="video-title">Video 6</div>
-        </div>
-
-        <div class="video-box" data-title="Tosaka-Chicken-7">
-            <iframe src="https://drive.google.com/file/d/1lCb6oJbfDZZsfYFUkrq41b9Kp5609UO_/preview" allow="autoplay"></iframe>
-            <div class="video-title">Video 7</div>
-        </div>
-
-        <div class="video-box" data-title="Vtuber-8">
-            <iframe src="https://drive.google.com/file/d/1ZSPsXJd4mdecjMyhQHTNrZE8Q91BYJmd/preview" allow="autoplay"></iframe>
-            <div class="video-title">Video 8</div>
-        </div>
-
-        <div class="video-box" data-title="Janedoe-zzz-9">
-            <iframe src="https://drive.google.com/file/d/18ZDPA76vRGQecI_Xt_C6-2zh1OIhr3Pe/preview" allow="autoplay"></iframe>
-            <div class="video-title">Video 9</div>
-        </div>
-
-        <div class="video-box" data-title="zzz-10">
-            <iframe src="https://drive.google.com/file/d/1EK7C7XDORlEbTHPY_U1nBlhKmf-tGHo9/preview" allow="autoplay"></iframe>
-            <div class="video-title">Video 10</div>
+        <div class="controls">
+            <button class="btn" onclick="window.location.reload()">
+                <i class="fas fa-sync-alt"></i> รีเฟรช
+            </button>
+            <button class="btn btn-secondary" onclick="window.open('https://drive.google.com/drive/folders/1Y5b5a8xCtTjkv7lfWoDrUg4l2oCer6ZZ', '_blank')">
+                <i class="fab fa-google-drive"></i> เปิดในแอป Drive
+            </button>
         </div>
     </div>
 
-    <div class="video-container" id="videoContainer2">
-        <div class="video-box" data-title="RaidenMei-Honkaistaril-Machi-11">
-            <iframe src="https://drive.google.com/file/d/1e_9O1LALphMqZkdnYHLwfNoRhHeQ3JhE/preview" allow="autoplay"></iframe>
-            <div class="video-title">Video 11</div>
-        </div>
-        <div class="video-box" data-title="Reelruru-12">
-            <iframe src="https://drive.google.com/file/d/15V7eOeGesVKUPCFwpFuE_0O_LWCxhkNG/preview" allow="autoplay"></iframe>
-            <div class="video-title">Video 12</div>
-        </div>
-        <div class="video-box" data-title="Ako-bluearchive-13">
-            <iframe src="https://drive.google.com/file/d/1WPq7-dQW5XJTmBEznsTdJ76L4TLWhoQ0/preview" allow="autoplay"></iframe>
-            <div class="video-title">Video 13</div>
-        </div>
-        <div class="video-box" data-title="Ako-bluearchive-14">
-            <iframe src="https://drive.google.com/file/d/1AHE2gnyFb3Vk-tYjUxdIpDl7JnUl1Bdm/preview" allow="autoplay"></iframe>
-            <div class="video-title">Video 14</div>
-        </div>
-        <div class="video-box" data-title="Ako-bluearchive-15">
-            <iframe src="https://drive.google.com/file/d/1nBcmDAsPuyG51jdQhZaoyf9qs_ccg3Vj/preview" allow="autoplay"></iframe>
-            <div class="video-title">Video 15</div>
-        </div>
-        <div class="video-box" data-title="Ako-bluearchive-16">
-            <iframe src="https://drive.google.com/file/d/1tcNFY0H1LR7R-rJe8giBp_Gu5ymlzCTr/preview" allow="autoplay"></iframe>
-            <div class="video-title">Video 16</div>
-        </div>
-        <div class="video-box" data-title="HonkaiImpact-17">
-            <iframe src="https://drive.google.com/file/d/1zHMxni1xw4M3ba6b23BQ0LFiDStzFrzu/preview" allow="autoplay"></iframe>
-            <div class="video-title">Video 17</div>
-        </div>
-        <div class="video-box" data-title="zzz-18">
-            <iframe src="https://drive.google.com/file/d/1hb4aVfSIPCFGKyCrAwkHcVNB_nywrgNK/preview" allow="autoplay"></iframe>
-            <div class="video-title">Video 18</div>
-        </div>
-        <div class="video-box" data-title="bronya-HonkaiImpact-19">
-            <iframe src="https://drive.google.com/file/d/1GEFn7QOdNs-CMXdizLXL0BrkoIzmLshS/preview" allow="autoplay"></iframe>
-            <div class="video-title">Video 19</div>
-        </div>
-        <div class="video-box" data-title="Rio-bluearchive-20">
-            <iframe src="https://drive.google.com/file/d/1-yPonKgrsOkcouIhUZ4JYjESLn2wVSO9/preview" allow="autoplay"></iframe>
-            <div class="video-title">Video 20</div>
-        </div>
-    </div>
-    <div class="video-container" id="videoContainer1">
-        <div class="video-box" data-title="zzz-burnice-caesar-21">
-            <iframe src="https://drive.google.com/file/d/1qQ6oTviVxXnn9vTMyl0vQ41fEUCk95pl/preview" allow="autoplay"></iframe>
-            <div class="video-title">Video 21</div>
-        </div>
-        <div class="video-box" data-title="wutheringwaves-camellya-22">
-            <iframe src="https://drive.google.com/file/d/1Mdv24-cfquW8smdAR6TCcmXA7yNYUcXV/preview" allow="autoplay"></iframe>
-            <div class="video-title">Video 22</div>
-        </div>
-        <div class="video-box" data-title="zzz-Miyabi-23">
-            <iframe src="https://drive.google.com/file/d/10vZtMghpHgFbnG7_3aj2CJZ2rq-thfvM/preview" allow="autoplay"></iframe>
-            <div class="video-title">Video 23</div>
-        </div>
-        <div class="video-box" data-title="Cat-24">
-            <iframe src="https://drive.google.com/file/d/1NC-w-L4-hkZ-RzxKfn64onEquTagdKek/preview" allow="autoplay"></iframe>
-            <div class="video-title">Video 24</div>
-        </div>
-        <div class="video-box" data-title="zzz-nicole-25">
-            <iframe src="https://drive.google.com/file/d/1YUNQ56ILla7AL1WYJdSINtUWpeRXzqot/preview" allow="autoplay"></iframe>
-            <div class="video-title">Video 25</div>
-        </div>
-        <div class="video-box" data-title="wutheringwaves-changli-26">
-            <iframe src="https://drive.google.com/file/d/1aYQPDdGAXqFQNsWmRHunTG5GCpnWeTJR/preview" allow="autoplay"></iframe>
-            <div class="video-title">Video 26</div>
-        </div>
-        <div class="video-box" data-title="HonkaiStaril-feixiao-27">
-            <iframe src="https://drive.google.com/file/d/1r_cgoWPygzkDFaI4cSwFi7A7sYxWkvTV/preview" allow="autoplay"></iframe>
-            <div class="video-title">Video 27</div>
-        </div>
-        <div class="video-box" data-title="fubuki-28">
-            <iframe src="https://drive.google.com/file/d/1zc9-gOsnHb4zEndntBz5VpoiIw9QLrUR/preview" allow="autoplay"></iframe>
-            <div class="video-title">Video 28</div>
-        </div>
-        <div class="video-box" data-title="HonkaiStaril-Tingyun-29">
-            <iframe src="https://drive.google.com/file/d/1_xqOsDn_mmOQ4eo0Vymel5Jr8lnTolSc/preview" allow="autoplay"></iframe>
-            <div class="video-title">Video 29</div>
-        </div>
-        <div class="video-box" data-title="Cat-30">
-            <iframe src="https://drive.google.com/file/d/1T58M0-bt4I_hk6AyBcd5kQN66LV-A1nZ/preview" allow="autoplay"></iframe>
-            <div class="video-title">Video 30</div>
-        </div>
+    <footer>
+        <p>© 2023 คลังวิดีโอบน Google Drive | พัฒนาเพื่อการใช้งานส่วนตัว</p>
+    </footer>
 
     <script>
-        function filterVideos() {
-            const searchInput = document.getElementById('searchInput').value.toLowerCase();
-            const videoContainers = document.querySelectorAll('.video-container');
-
-            videoContainers.forEach(container => {
-                const videoBoxes = container.getElementsByClassName('video-box');
-                for (let i = 0; i < videoBoxes.length; i++) {
-                    const title = videoBoxes[i].getAttribute('data-title').toLowerCase();
-                    if (title.includes(searchInput)) {
-                        videoBoxes[i].style.display = 'block';
-                    } else {
-                        videoBoxes[i].style.display = 'none';
-                    }
-                }
-            });
+        // ป้องกันการซูมบนมือถือ
+        document.addEventListener('gesturestart', function (e) {
+            e.preventDefault();
+        });
+        
+        // ปรับ iframe ขนาดเมื่อเปลี่ยน orientation
+        function adjustIframeHeight() {
+            const iframeWrapper = document.querySelector('.iframe-wrapper');
+            if (window.innerHeight > window.innerWidth) {
+                // แนวตั้ง
+                iframeWrapper.style.paddingBottom = 'min(125%, 80vh)';
+            } else {
+                // แนวนอน
+                iframeWrapper.style.paddingBottom = 'min(56.25%, 70vh)';
+            }
         }
+        
+        window.addEventListener('resize', adjustIframeHeight);
+        window.addEventListener('orientationchange', adjustIframeHeight);
     </script>
