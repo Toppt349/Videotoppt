@@ -1,254 +1,33 @@
-
+<!DOCTYPE html>
 <html lang="th">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>คลังวิดีโอ (Gray Theme)</title>
-    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>หน้าแรก</title>
     <style>
-        :root {
-            --primary-color: #5f6368;
-            --secondary-color: #80868b;
-            --accent-color: #9aa0a6;
-            --gray-bg: #f1f3f4;
-            --gray-surface: #ffffff;
-            --gray-card: #f8f9fa;
-            --text-primary: #202124;
-            --text-secondary: #5f6368;
-            --card-shadow: 0 1px 2px 0 rgba(60,64,67,0.3), 0 1px 3px 1px rgba(60,64,67,0.15);
-            --hover-shadow: 0 1px 3px 0 rgba(60,64,67,0.302), 0 4px 8px 3px rgba(60,64,67,0.149);
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            -webkit-tap-highlight-color: transparent;
-        }
-
         body {
-            font-family: 'Kanit', sans-serif;
-            background-color: var(--gray-bg);
-            color: var(--text-primary);
-            line-height: 1.5;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .container {
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 1.5rem;
-            flex: 1;
-        }
-
-        header {
+            background-color: gray;
+            color: white;
             text-align: center;
-            margin-bottom: 1.5rem;
-            padding: 1rem 0;
+            font-family: Arial, sans-serif;
         }
-
-        h1 {
-            font-size: clamp(1.5rem, 4vw, 2.2rem);
-            font-weight: 500;
-            margin-bottom: 0.5rem;
-            color: var(--primary-color);
-        }
-
-        .subtitle {
-            font-size: clamp(0.9rem, 2vw, 1.1rem);
-            color: var(--text-secondary);
-        }
-
-        .drive-container {
-            background: var(--gray-surface);
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: var(--card-shadow);
-            margin-bottom: 1.5rem;
-            transition: all 0.3s ease;
-            border: 1px solid #dadce0;
-        }
-
-        .drive-container:hover {
-            box-shadow: var(--hover-shadow);
-            transform: translateY(-2px);
-        }
-
-        .drive-header {
-            background: linear-gradient(135deg, #f1f3f4, #e8eaed);
-            color: var(--text-primary);
-            padding: 0.8rem 1.2rem;
-            display: flex;
-            align-items: center;
-            border-bottom: 1px solid #dadce0;
-        }
-
-        .drive-header i {
-            font-size: clamp(1.2rem, 3vw, 1.5rem);
-            margin-right: 0.8rem;
-            color: var(--primary-color);
-        }
-
-        .drive-header h2 {
-            font-weight: 400;
-            font-size: clamp(1rem, 2.5vw, 1.3rem);
-        }
-
-        .iframe-wrapper {
-            position: relative;
-            width: 100%;
-            padding-bottom: min(56.25%, 70vh);
-            height: 0;
-            overflow: hidden;
-            background: #f8f9fa;
-        }
-
-        .iframe-wrapper iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
-
-        .controls {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            flex-wrap: wrap;
-            margin-top: 1.5rem;
-        }
-
-        .btn {
-            background: var(--primary-color);
+        button {
+            background-color: #555;
             color: white;
             border: none;
-            padding: 0.7rem 1.2rem;
-            border-radius: 4px;
-            font-size: clamp(0.8rem, 2vw, 0.95rem);
-            display: flex;
-            align-items: center;
+            padding: 10px 20px;
             cursor: pointer;
-            box-shadow: 0 1px 2px 0 rgba(60,64,67,0.3), 0 1px 3px 1px rgba(60,64,67,0.15);
-            transition: all 0.2s ease;
-            font-weight: 500;
+            font-size: 16px;
         }
-
-        .btn:hover {
-            background: #3c4043;
-            transform: translateY(-1px);
-            box-shadow: 0 1px 3px 0 rgba(60,64,67,0.302), 0 4px 8px 3px rgba(60,64,67,0.149);
-        }
-
-        .btn i {
-            margin-right: 8px;
-        }
-
-        .btn-secondary {
-            background: white;
-            color: var(--primary-color);
-            border: 1px solid #dadce0;
-        }
-
-        .btn-secondary:hover {
-            background: #f8f9fa;
-            border-color: #d2d6da;
-        }
-
-        footer {
-            text-align: center;
-            padding: 1.2rem;
-            color: var(--text-secondary);
-            font-size: 0.85rem;
-            background: white;
-            margin-top: auto;
-            border-top: 1px solid #dadce0;
-        }
-
-        /* ปรับสำหรับมือถือแนวตั้ง */
-        @media (max-width: 600px) and (orientation: portrait) {
-            .container {
-                padding: 1rem;
-            }
-            
-            .iframe-wrapper {
-                padding-bottom: min(125%, 80vh);
-            }
-            
-            .controls {
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            .btn {
-                width: 100%;
-                max-width: 280px;
-                justify-content: center;
-            }
-        }
-
-        /* ปรับสำหรับแท็บเล็ต */
-        @media (min-width: 601px) and (max-width: 1024px) {
-            .iframe-wrapper {
-                padding-bottom: min(75%, 60vh);
-            }
+        button:hover {
+            background-color: #777;
         }
     </style>
 
-    <div class="container">
-        <header>
-            <h1><i class="fas fa-video"></i> คลังวิดีโอ (Gray Theme)</h1>
-            <p class="subtitle">วิดีโอทั้งหมดจาก Google Drive ในที่เดียว</p>
-        </header>
-
-        <div class="drive-container">
-            <div class="drive-header">
-                <i class="fab fa-google-drive"></i>
-                <h2>โฟลเดอร์วิดีโอ</h2>
-            </div>
-            <div class="iframe-wrapper">
-                <!-- แทรก FOLDER_ID ของคุณหลัง id= -->
-                <iframe src="https://drive.google.com/embeddedfolderview?id=1Y5b5a8xCtTjkv7lfWoDrUg4l2oCer6ZZ#grid"></iframe>
-            </div>
-        </div>
-
-        <div class="controls">
-            <button class="btn" onclick="window.location.reload()">
-                <i class="fas fa-sync-alt"></i> รีเฟรช
-            </button>
-            <button class="btn btn-secondary" onclick="window.open('https://drive.google.com/drive/folders/1Y5b5a8xCtTjkv7lfWoDrUg4l2oCer6ZZ', '_blank')">
-                <i class="fab fa-google-drive"></i> เปิดในแอป Drive
-            </button>
-        </div>
-    </div>
-
-    <footer>
-        <p>© 2023 คลังวิดีโอบน Google Drive | พัฒนาเพื่อการใช้งานส่วนตัว</p>
-    </footer>
-
-    <script>
-        // ป้องกันการซูมบนมือถือ
-        document.addEventListener('gesturestart', function (e) {
-            e.preventDefault();
-        });
-        
-        // ปรับ iframe ขนาดเมื่อเปลี่ยน orientation
-        function adjustIframeHeight() {
-            const iframeWrapper = document.querySelector('.iframe-wrapper');
-            if (window.innerHeight > window.innerWidth) {
-                // แนวตั้ง
-                iframeWrapper.style.paddingBottom = 'min(125%, 80vh)';
-            } else {
-                // แนวนอน
-                iframeWrapper.style.paddingBottom = 'min(56.25%, 70vh)';
-            }
-        }
-        
-        window.addEventListener('resize', adjustIframeHeight);
-        window.addEventListener('orientationchange', adjustIframeHeight);
-    </script>
+    <h1>ยินดีต้อนรับสู่หน้าแรก</h1>
+    <p>กดปุ่มด้านล่างเพื่อไปยังอีกหน้า</p>
+    <a href="candle.html">
+        <button>ไปยังหน้า 2</button>
+    </a>
+</body>
+</html>
