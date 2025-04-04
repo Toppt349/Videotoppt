@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+
 <html lang="th">
 <head>
     <meta charset="UTF-8">
@@ -27,7 +27,5 @@
     <h1>ยินดีต้อนรับสู่หน้าแรก</h1>
     <p>กดปุ่มด้านล่างเพื่อไปยังอีกหน้า</p>
     <a href="candle.html">
-        <button>ไปยังหน้า 2</button>
+        <button>ไปยังหน้า H+ </button>
     </a>
-</body>
-</html>
